@@ -1,17 +1,18 @@
 const express = require("express");
 const bodyParser = require('body-parser');
+const path = require('path');
 
+const key = require(path.join(__dirname, '/config/keys'));
+const host = key.host;
+const port = key.port;
 const app = express();
-const port = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('public'));
 
-app.use('/login', require('./routes/login'));
-app.use('/dashboard', require('./routes/dashboard'));
-app.use('/cashpoint', require('./routes/cashpoint'));
+app.use('/login', require(path.join(__dirname, '/routes/login')));
+app.use('/dashboard', require(path.join(__dirname, '/routes/dashboard')));
+app.use('/cashpoint', require(path.join(__dirname, '/routes/cashpoint')));
 
-app.listen(port, function () {
-    console.log("tomcash is running on port " + port);
-});
+app.listen(port, host, () => console.log("tomcash is running on port " + port));

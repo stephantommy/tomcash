@@ -1,8 +1,8 @@
 const http = require("http");
 const express = require('express');
+const path = require('path');
 
-const key = require('../config/keys');
-
+const key = require(path.join(__dirname, '../config/keys'));
 const router = express.Router();
 
 router.get('/cashpoint', function(req, res) {

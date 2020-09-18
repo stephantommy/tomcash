@@ -1,8 +1,8 @@
 const http = require('http');
 const express = require('express');
+const path = require('path');
 
-const key = require('../config/keys');
-
+const key = require(path.join(__dirname, '../config/keys'));
 const router = express.Router();
 
 router.post('/', function(req, res) {
@@ -38,8 +38,6 @@ router.post('/', function(req, res) {
 
     request.write(jsonData);
     request.end();
-
-    // post login to services
 });
 
 module.exports = router;
