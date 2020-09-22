@@ -1,5 +1,5 @@
 module.exports = {
-    host: process.env.HOST || 'localhost',
+    host: process.env.HOST || '0.0.0.0',
     port: process.env.PORT || 3000,
 
     login: 'http://' + (process.env.LOGIN_SERVICE_HOST || 'localhost') + ':' + (process.env.LOGIN_SERVICE_PORT || '3002') + '/api/login',

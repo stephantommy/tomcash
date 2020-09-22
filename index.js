@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const key = require(path.join(__dirname, '/config/keys'));
-// const host = key.host;
+const host = key.host;
 const port = key.port;
 const app = express();
 
@@ -16,4 +16,4 @@ app.use('/login', require(path.join(__dirname, '/routes/login')));
 app.use('/dashboard', require(path.join(__dirname, '/routes/dashboard')));
 app.use('/cashpoint', require(path.join(__dirname, '/routes/cashpoint')));
 
-app.listen(port, () => console.log("tomcash is running on port " + port));
+app.listen(port, host, () => console.log("tomcash is running on port " + port));
